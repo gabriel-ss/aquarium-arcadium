@@ -1,5 +1,6 @@
 const sketch = require("./sketch");
 const framework = require("./framework");
+const telegram = require("./telegram");
 const EventEmitter = require("./event-emitter");
 
 
