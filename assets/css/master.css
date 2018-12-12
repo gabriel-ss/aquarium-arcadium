@@ -1,0 +1,720 @@
+/* Variables
+__________________________________________________ */
+:root {
+   --light-text: #FFFFFF;
+   --dark-text: #444444;
+
+   --light-overlay: rgba(0, 0, 0, 0.05);
+   --dark-overlay: rgba(0, 0, 0, 0.125);
+
+   --default-color: #FFFFFF;
+   --default-color-alt: #F9F8FC;
+   --default-text-color: var(--dark-text);
+   --default-gradient: #;
+
+   --primary-color: #593196;
+   --primary-color-alt: #D1C5E2;
+   --primary-text-color: var(--light-text);
+   --primary-gradient: #;
+
+   --secondary-color: #A991D4;
+   --secondary-color-alt: #E7E0F3;
+   --secondary-text-color: var(--light-text);
+   --secondary-gradient: #;
+
+   --success-color: #13B955;
+   --success-color-alt: #BDEBCF;
+   --success-text-color: var(--light-text);
+   --success-gradient: #;
+
+   --danger-color: #FC3939;
+   --danger-color-alt: #FEC8C8;
+   --danger-text-color: var(--light-text);
+   --danger-gradient: #;
+
+   --warning-color: #EFA31D;
+   --warning-color-alt: #FBE5C0;
+   --warning-text-color: var(--light-text);
+   --warning-gradient: #;
+
+   --info-color: #009CDC;
+   --info-color-alt: #B8E3F5;
+   --info-text-color: var(--light-text);
+   --info-gradient: #;
+
+   --light-color: #F9F8FC;
+   --light-color-alt: #FDFDFE;
+   --light-text-color: var(--dark-text);
+   --light-gradient: #;
+
+   --dark-color: #17141F;
+   --dark-color-alt: #BEBDC0;
+   --dark-text-color: var(--light-text);
+   --dark-gradient: #;
+
+
+   --fonts: Helvetica, "Trebuchet MS", Verdana, sans-serif;
+
+   --radius-small: .1em;
+   --radius-big: .3em;
+
+   --trasition-short: .25s;
+   --trasition-long: 1s;
+
+   --input-border: 1px;
+   --input-padding: .75em;
+   --input-background: var(--dark-overlay);
+   --input-focus-shadow: 0 0 .5em;
+
+   --table-line-border: 1px 0 0 0;
+}
+
+
+/* Base Styles
+__________________________________________________ */
+
+html,
+body {
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   color: var(--default-text-color);
+   background-color: var(--default-color);
+   font-family: var(--fonts);
+}
+
+a {
+   text-decoration: none;
+   color: var(--primary-color)
+}
+
+a:hover {
+   text-decoration: underline;
+}
+
+
+/* header
+__________________________________________________ */
+
+header {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   padding: 1em;
+}
+
+header::after {
+   content: "";
+   display: table;
+   clear: both;
+}
+
+header>.container {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+
+.header-brand {
+   font-size: 2rem;
+   color: inherit;
+}
+
+.header-brand:hover {
+   text-decoration: none;
+}
+
+.header-sidetext {
+   margin: .25em 0;
+   font-size: 1.5rem;
+   color: var(--primary-color-alt);
+   float: right;
+}
+
+/* Navbar
+__________________________________________________ */
+
+nav {
+   box-sizing: border-box;
+   height: auto;
+   display: flex;
+}
+
+nav ul {
+   display: flex;
+   flex: auto;
+   padding: 0;
+   margin: 0;
+}
+
+nav.justify {
+   justify-content: space-between;
+}
+
+nav.center {
+   justify-content: center;
+}
+
+nav li {
+   padding: .75em;
+   width: 100%;
+   box-sizing: border-box;
+   list-style: none;
+   margin: 0;
+}
+
+/* Forms
+__________________________________________________ */
+
+form {
+   margin: 1em 0em 1em;
+}
+
+input,
+select,
+textarea {
+   box-sizing: border-box;
+   border: solid var(--default-color-alt);
+   border-width: var(--input-border);
+   background: var(--input-background);
+   padding: var(--input-padding);
+   border-radius: var(--radius-big);
+   color: var(--default-text-color);
+   margin-bottom: 1em;
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+   box-sizing: border-box;
+   border: solid var(--default-text-color);
+   border-width: var(--input-border);
+   box-shadow: var(--input-focus-shadow) var(--primary-color);
+   outline: 0;
+   transition-property: all;
+   transition-duration: var(--trasition-short);
+}
+
+input::placeholder,
+textarea::placeholder {
+   color: var(--primary-text-color);
+}
+
+label {
+   width: 100%;
+   box-sizing: border-box;
+   display: inline-block;
+}
+
+label>input,
+label>select,
+label>textarea {
+   margin-top: .5em;
+}
+
+form.inline {
+   margin-top: 0;
+   margin-bottom: 0;
+}
+
+form.inline input {
+   margin: .1rem 0.3em !important;
+   padding: 0.5rem 0.75rem !important;
+   font-size: 1rem;
+}
+
+/* Buttons
+__________________________________________________ */
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+   cursor: pointer;
+   border: solid var(--primary-color-alt);
+   border-width: var(--input-border);
+   background: var(--input-background);
+   padding: var(--input-padding);
+   border-radius: var(--radius-big);
+   color: var(--default-text-color);
+   margin-bottom: 1em;
+}
+
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus {
+   border: solid var(--default-text-color);
+   border-width: var(--input-border);
+   box-shadow: var(--input-focus-shadow) var(--primary-color);
+   outline: 0;
+   transition-property: all;
+   transition-duration: var(--trasition-short);
+}
+
+button.close {
+   border: none;
+   box-shadow: none;
+}
+
+button.close:hover {
+   color: var(--primary-color-alt);
+}
+
+button.close::before {
+   content: "\2715";
+   font-size: 1.5em;
+}
+
+/* Tables
+__________________________________________________ */
+
+table {
+   border-collapse: collapse;
+   width: 100%;
+   margin-bottom: 1em;
+}
+
+th, td {
+   border-style: solid;
+   border-color: var(--dark-overlay);
+   border-width: var(--table-line-border);
+   padding: .75em;
+   text-align: left;
+}
+
+/* Highligh
+__________________________________________________ */
+
+.highligh {
+   color: var(--default-text-color);
+   background-color: var(--default-color-alt);
+   padding: 2em 1em;
+   margin-bottom: 1em;
+}
+
+.lead {
+   font-size: 1.25em;
+}
+
+/* Card
+__________________________________________________ */
+
+.card {
+   display: flex;
+   flex-flow: column;
+   border: 1px solid rgba(0, 0, 0, 0.125);
+   border-radius: var(--radius-small);
+   overflow: hidden;
+}
+
+.card>.header {
+   background-color: rgba(0, 0, 0, 0.02);
+   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+   padding: .75rem 1.25rem;
+   font-size: 1.2em;
+}
+
+.card>.body {
+   padding: 1.25rem;
+   flex: 1 1 auto;
+}
+
+.card>.footer {
+   background-color: rgba(0, 0, 0, 0.02);
+   border-top: 1px solid rgba(0, 0, 0, 0.125);
+   padding: .75rem 1.25rem;
+}
+
+/* Alert
+__________________________________________________ */
+
+.alert {
+   padding: .75em 1em;
+   border: solid 1px var(--light-overlay);
+   border-radius: var(--radius-small);
+   margin-bottom: 1em;
+   color: var(--dark-text);
+}
+
+/* Modal
+__________________________________________________ */
+
+.overlay {
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 1;
+   background-color: rgba(63, 63, 63, 0.5);
+   animation: fadeIn 1s;
+}
+
+.modal {
+   overflow: hidden;
+   margin: 2em auto;
+   max-width: 40em;
+   width: 60%;
+   background-color: var(--default-color);
+   z-index: 1;
+   padding: .5em 0;
+   border-radius: var(--radius-big);
+   animation: slideDown .5s;
+}
+
+.modal>button.close {
+   float: right;
+   margin: 1em 1.5em .75em;
+   padding: 0;
+}
+
+.modal>.header {
+   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+   padding: .75em 1.5em;
+   font-size: 1.25em;
+   font-weight: bold;
+   margin-bottom: 1em;
+}
+
+.modal>.body {
+   padding: .75em 1.5em;
+   margin-bottom: 1em;
+}
+
+@keyframes fadeIn {
+   0% {
+      background: rgba(0, 0, 0, 0);
+   }
+
+   100% {
+      background: rgba(63, 63, 63, 0.5);
+   }
+}
+
+@keyframes slideDown {
+   from {
+      transform: translateY(-100%);
+   }
+
+   to {
+      transform: translateY(0%);
+   }
+}
+
+/* Tabs
+__________________________________________________ */
+
+
+.tab-content {
+   display: none;
+}
+
+.tab-title {
+   cursor: pointer;
+   text-align: center;
+}
+
+.tab-title:hover {
+   color: var(--primary-color-alt);
+}
+
+/* Spinner
+__________________________________________________ */
+
+
+.spinner {
+   box-sizing: border-box;
+   position: relative;
+   margin: auto;
+   margin-top: -30px;
+   top: 50%;
+   height: 60px;
+   width: 60px;
+   border-radius: 50%;
+   border-top: solid var(--primary-color);
+   animation: spinner 1.5s ease-in-out infinite;
+}
+
+.spinner-double {
+   box-sizing: border-box;
+   position: relative;
+   top: 50%;
+   height: 60px;
+   width: 60px;
+   margin: -30px auto auto;
+   border-radius: 50%;
+   border: 2px solid;
+   border-color: var(--primary-color) transparent;
+   animation: spinner 1.5s linear infinite;
+}
+
+@keyframes spinner {
+   to {
+      transform: rotate(1080deg);
+   }
+}
+
+/* Slideshow
+__________________________________________________ */
+
+
+.slideshow {
+   position: relative;
+   display: inline-block;
+}
+
+.slideshow-content {
+   margin: 0 35px;
+   width: calc(100% - 70px);
+   height: inherit;
+   overflow: auto;
+   display: none;
+}
+
+.prev,
+.next {
+   cursor: pointer;
+   position: absolute;
+   top: 50%;
+   width: 15px;
+   margin-top: -22px;
+   padding: 10px;
+   font-weight: bold;
+   font-size: 18px;
+}
+
+.next {
+   right: 0;
+}
+
+.prev::before {
+   content: "\2770";
+}
+
+.next::before {
+   content: "\2771";
+}
+
+.prev:hover,
+.next:hover {
+   color: var(--primary-color-alt);
+   text-decoration: none;
+}
+
+/* Views
+__________________________________________________ */
+
+
+.view {
+	color: var(--default-text-color);
+   background-color: var(--default-color);
+	display: flex;
+   min-width: 100vw;
+   min-height: 100vh;
+	position: fixed;
+}
+
+.view.active {
+   display: flex;
+	z-index: 1000;
+	animation: displayView .5s;
+}
+
+@keyframes displayView {
+   from {
+      transform: translateY(100%);
+   }
+
+   to {
+      transform: translateY(0%);
+   }
+}
+
+/* Contextual
+__________________________________________________ */
+
+
+tr.default, table.default {
+   background-color: var(--default-color-alt);
+   color: var(--default-text-color);
+}
+
+tr.primary, table.primary {
+   background-color: var(--primary-color-alt);
+   color: var(--default-text-color);
+}
+
+tr.secondary, table.secondary {
+   background-color: var(--secondary-color-alt);
+   color: var(--default-text-color);
+}
+
+tr.success, table.success {
+   background-color: var(--success-color-alt);
+   color: var(--default-text-color);
+}
+
+tr.danger, table.danger {
+   background-color: var(--danger-color-alt);
+   color: var(--default-text-color);
+}
+
+tr.warning, table.warning {
+   background-color: var(--warning-color-alt);
+   color: var(--default-text-color);
+}
+
+tr.info, table.info {
+   background-color: var(--info-color-alt);
+   color: var(--default-text-color);
+}
+
+tr.light, table.light {
+   background-color: var(--light-color-alt);
+   color: var(--default-text-color);
+}
+
+tr.dark, table.dark {
+   background-color: var(--dark-color-alt);
+   color: var(--default-text-color);
+}
+
+
+.primary {
+   background-color: var(--primary-color);
+   color: var(--primary-text-color);
+}
+
+.primary.gradient {
+   background: var(--primary-gradient)
+}
+
+.secondary {
+   background-color: var(--secondary-color);
+   color: var(--secondary-text-color);
+}
+
+.secondary.gradient {
+   background: var(--secondary-gradient)
+}
+
+.success {
+   background-color: var(--success-color);
+   color: var(--success-text-color);
+}
+
+.success.gradient {
+   background: var(--success-gradient)
+}
+
+.danger {
+   background-color: var(--danger-color);
+   color: var(--danger-text-color);
+}
+
+.danger.gradient {
+   background: var(--danger-gradient)
+}
+
+.warning {
+   background-color: var(--warning-color);
+   color: var(--warning-text-color);
+}
+
+.warning.gradient {
+   background: var(--warning-gradient)
+}
+
+.info {
+   background-color: var(--info-color);
+   color: var(--info-text-color);
+}
+
+.info.gradient {
+   background: var(--info-gradient)
+}
+
+.light {
+   background-color: var(--light-color);
+   color: var(--light-text-color);
+}
+
+.light.gradient {
+   background: var(--light-gradient)
+}
+
+.dark {
+   background-color: var(--dark-color);
+   color: var(--dark-text-color);
+}
+
+.dark.gradient {
+   background: var(--dark-gradient)
+}
+
+/* Helpers
+__________________________________________________ */
+
+.active {
+   display: block;
+}
+
+.container {
+   width: 85%;
+   margin-left: auto;
+   margin-right: auto;
+   max-width: 960px;
+}
+
+.container::after {
+   content: "";
+   display: table;
+   clear: both;
+}
+
+.container-fluid {
+   max-width: 100%;
+   margin: 2em 4em;
+}
+
+.full-width {
+   width: 100%;
+   box-sizing: border-box;
+   float: left;
+}
+
+.half-width {
+   width: 50%;
+   box-sizing: border-box;
+   float: left;
+}
+
+.float-left {
+   float: left;
+}
+
+.expand-left {
+   margin-left: 0;
+   margin-right: auto;
+}
+
+.float-right {
+   float: right;
+}
+
+.expand-right {
+   margin-left: auto;
+   margin-right: 0;
+}
+
+.hidden {
+   visibility: hidden;
+}
+
+.ocult {
+   display: none;
+}
