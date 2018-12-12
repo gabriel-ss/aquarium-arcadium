@@ -1,0 +1,24 @@
+{
+  "name": "aquarium-arcadium",
+  "version": "1.0.0",
+  "description": "Front-end for IoT automated aquariums",
+  "main": "src/main.js",
+  "scripts": {
+    "build": "mkdir -p dist && cp -ru -t dist index.html assets && npm run build:sketch && npm run build:framework && npm run build:telegram && npm run build:master",
+    "build:master": "npx browserify -o dist/assets/js/master.js src/main.js",
+    "build:sketch": "npx rollup -o src/sketch/index.js -f cjs src/sketch/sketch.js",
+    "build:framework": "npx rollup -o src/framework/index.js -f cjs src/framework/framework.js",
+    "build:telegram": "npx rollup -o src/telegram/index.js -f cjs src/telegram/telegram.js",
+    "clean": "rm -rf src/*/index.js dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gabriel Silveira",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^16.2.3",
+    "rollup": "^0.67.4"
+  },
+  "dependencies": {
+    "p5": "^0.7.2"
+  }
+}
